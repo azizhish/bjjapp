@@ -1,0 +1,23 @@
+<body class="mat-app-background">
+<div class="container" fxLayout="column" 
+ fxLayoutAlign="space-around start" fxLayoutGap="10px" >
+  <div fxFlex>
+    <h1>Login Page</h1>
+    
+  </div>
+  <div fxFlex fxFlexOffset="20">
+    <form >
+      <mat-form-field class="inp1">
+        <input matInput placeholder="Login">
+      </mat-form-field>
+
+      <mat-form-field class="inp1">
+        <input matInput placeholder="Password">
+      </mat-form-field>
+      <button mat-button type="submit" name="submit"
+      routerLink="/dashboard" routerLinkActive="active">Submit</button>
+      <button mat-button><a routerLink="/register" routerLinkActive="active">Register</a></button>
+    </form>
+  </div>
+</div>
+</body>

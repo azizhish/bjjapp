@@ -1,18 +1,50 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule } from '@angular/material';
+
+//For the base url
+import { baseURL } from './shared/baseurl';
+
+//Rest stuff
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
+
+//Services
+import { UserService } from "./services/user.service";
 
 
 import { AppComponent } from './app.component';
-
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    DashboardComponent,
+    RegisterComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    RestangularModule.forRoot(RestangularConfigFactory),
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatCardModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatListModule
   ],
-  providers: [],
+  providers: [{ provide: 'BaseURL', useValue: baseURL }, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
