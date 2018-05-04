@@ -1,12 +1,42 @@
 {
-    "users":[
-        {
-            "id": 0,
-            "fname": "Hisham",
-            "lname": "Aziz",
-            "uname": "shammer",
-            "pass": "shamwise"
-        }
-    ]
-
+  "master": {
+    "id": 6
+  },
+  "users": [
+    {
+      "id": 1,
+      "fname": "h",
+      "lname": "d",
+      "uname": "d",
+      "pass": "d"
+    },
+    {
+      "id": 3,
+      "fname": "f",
+      "lname": "e",
+      "uname": "w",
+      "pass": "1"
+    },
+    {
+      "id": 4,
+      "fname": "fw",
+      "lname": "e",
+      "uname": "w",
+      "pass": "1"
+    },
+    {
+      "id": 5,
+      "fname": "fw5",
+      "lname": "e",
+      "uname": "w",
+      "pass": "1"
+    },
+    {
+      "id": 6,
+      "fname": "fw6",
+      "lname": "e",
+      "uname": "w",
+      "pass": "1"
+    }
+  ]
 }

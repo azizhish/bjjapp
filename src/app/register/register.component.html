@@ -8,21 +8,24 @@
       Enter your details here to begin tracking your BJJ stats!!
     </mat-card-subtitle>
     <mat-card-content>
-      <form>
+
+      <form (ngSubmit)="onSubmit()" #regForm="ngForm">
         <div class="reg">
           <mat-form-field>
-            <input matInput placeholder="First Name" type="text">
+            <input matInput placeholder="First Name" type="text" class="form-control" id="fname"
+            required [(ngModel)]="user.fname" name="fname">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Last Name" type="text">
+            <input matInput placeholder="Last Name" type="text" class="form-control" id="lname" required [(ngModel)]="user.lname" name="lname">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Username" type="text">
+            <input matInput placeholder="Username" type="text" class="form-control" id="uname" required [(ngModel)]="user.uname" name="uname">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Password" type="password">
+            <input matInput placeholder="Password" type="password" class="form-control" id="pass" required [(ngModel)]="user.pass" name="pass">
           </mat-form-field>
         </div>
+        <button mat-button type="submit" name="submit">Submit</button>
       </form>
     </mat-card-content>
   </mat-card>
