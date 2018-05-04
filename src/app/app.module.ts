@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule } from '@angular/material';
@@ -17,6 +17,9 @@ import { RestangularConfigFactory } from './shared/restConfig';
 //Services
 import { UserService } from "./services/user.service";
 import { RegUserService } from "./services/reguser.service";
+
+//Custome Validator
+import { ValidateUserTaken } from "./validators/userName";
 
 
 import { AppComponent } from './app.component';
@@ -36,6 +39,7 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     RestangularModule.forRoot(RestangularConfigFactory),
     BrowserAnimationsModule,
     FlexLayoutModule,

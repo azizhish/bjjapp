@@ -9,23 +9,23 @@
     </mat-card-subtitle>
     <mat-card-content>
 
-      <form (ngSubmit)="onSubmit()" #regForm="ngForm">
+      <form novalidate (ngSubmit)="onSubmit()" [formGroup]="newUser" >
         <div class="reg">
-          <mat-form-field>
+          <mat-form-field dividerColor="{{formErrors.fname ? 'warn' : 'primary'}}">
             <input matInput placeholder="First Name" type="text" class="form-control" id="fname"
-            required [(ngModel)]="user.fname" name="fname">
+            required formControlName="fname" name="fname">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Last Name" type="text" class="form-control" id="lname" required [(ngModel)]="user.lname" name="lname">
+            <input matInput placeholder="Last Name" type="text" class="form-control" id="lname" required formControlName="lname" name="lname">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Username" type="text" class="form-control" id="uname" required [(ngModel)]="user.uname" name="uname">
+            <input matInput placeholder="Username" type="text" class="form-control" id="uname" required formControlName="uname" name="uname">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Password" type="password" class="form-control" id="pass" required [(ngModel)]="user.pass" name="pass">
+            <input matInput placeholder="Password" type="password" class="form-control" id="pass" required formControlName="pass" name="pass">
           </mat-form-field>
         </div>
-        <button mat-button type="submit" name="submit">Submit</button>
+        <button mat-button type="submit" name="submit" [disabled]="newUser.invalid">Submit</button>
       </form>
     </mat-card-content>
   </mat-card>

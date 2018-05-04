@@ -16,6 +16,12 @@ export class RegUserService {
     return this.restang.one('master').get();
   }
 
+  checkUserName(uname: string) {
+    return this.restang.all('users').getList()
+      .map(users => (users.filter(user => user.uname === uname)))
+      .map(users => !users.length);
+  }
+
   setCounter(count: number): void {
     this.restang.all('master').post({ id: count }); 
   }
