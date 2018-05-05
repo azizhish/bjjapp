@@ -9,8 +9,4 @@ export class UserService {
 
   constructor(private restang: Restangular) { }
 
-  getUsers(): Observable<User[]> { 
-    return this.restang.all('users').getList();
-  }
-
 }

@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule } from '@angular/material';
+import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatListModule, MatDialogModule } from '@angular/material';
 
 //For the base url
 import { baseURL } from './shared/baseurl';
@@ -27,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { RegisterComponent } from './register/register.component';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     DashboardComponent,
     RegisterComponent,
+    LoginDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,11 +51,16 @@ import { RegisterComponent } from './register/register.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    LoginDialogComponent
   ],
   providers: [{ provide: 'BaseURL', useValue: baseURL },
     UserService,
-    RegUserService
+    RegUserService,
+    MatDialogModule
   ],
   bootstrap: [AppComponent]
 })

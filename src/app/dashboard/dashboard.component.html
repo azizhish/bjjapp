@@ -1,6 +1,10 @@
 <div class="container mat-app-background">
 
-  <mat-card>
+  <p>We should get 10</p>
+  <div *ngIf="user">
+    <p>{{user.id}}</p>
+  </div>
+  <!-- <mat-card>
     <mat-card-content>
       <mat-list>
         <mat-list-item *ngFor="let user of users">
@@ -9,7 +13,7 @@
         </mat-list-item>
       </mat-list>
     </mat-card-content>
-  </mat-card>
+  </mat-card> -->
 
 
 </div>

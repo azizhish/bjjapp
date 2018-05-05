@@ -6,16 +6,24 @@
     
   </div>
   <div fxFlex fxFlexOffset="20">
-    <form >
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      
+      <div class="form-group">
       <mat-form-field class="inp1">
-        <input matInput placeholder="Login">
+        <input matInput placeholder="Username" type="text" class="form-control"
+          id="user" required [(ngModel)]="user" name="user" #name="ngModel">
+          
       </mat-form-field>
+      </div>
 
+      <div class="form-group">
       <mat-form-field class="inp1">
-        <input matInput placeholder="Password">
+        <input matInput placeholder="Password" type="password" class="form-control" id="pass" required 
+        [(ngModel)]="pass" name="pass">
       </mat-form-field>
-      <button mat-button type="submit" name="submit"
-      routerLink="/dashboard" routerLinkActive="active">Submit</button>
+      </div>
+
+      <button mat-button type="submit" name="submit">Submit</button>
       <button mat-button><a routerLink="/register" routerLinkActive="active">Register</a></button>
     </form>
   </div>
