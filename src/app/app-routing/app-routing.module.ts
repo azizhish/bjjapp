@@ -6,12 +6,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { RegisterComponent } from '../register/register.component';
+import { InputDataComponent } from "../input-data/input-data.component";
+import { Graph1Component } from '../graph1/graph1.component';
 
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard/:id', component: DashboardComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'input/:id', component: InputDataComponent },
+  { path: 'graph', component: Graph1Component },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 

@@ -25,7 +25,7 @@
             <input matInput placeholder="Password" type="password" class="form-control" id="pass" required formControlName="pass" name="pass">
           </mat-form-field>
         </div>
-        <button mat-button type="submit" name="submit" [disabled]="newUser.invalid">Submit</button>
+        <a mat-button routerLink="/login" routerLinkActive="active" type="submit" name="submit" [disabled]="newUser.invalid">Submit</a>
       </form>
     </mat-card-content>
   </mat-card>

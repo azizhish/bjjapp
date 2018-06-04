@@ -1,0 +1,12 @@
+.main-card{
+    width: 30%;
+    margin:0px auto;
+    border-bottom: 3px ridge;
+    min-height:300px;
+}
+
+
+
+.card-text-custom{
+    padding: 30px 10px 30px 10px;
+}

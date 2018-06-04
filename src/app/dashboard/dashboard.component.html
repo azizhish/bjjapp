@@ -1,19 +1,71 @@
-<div class="container mat-app-background">
+<app-header>
+</app-header>
+<div class="mat-app-background">
 
-  <p>We should get 10</p>
-  <div *ngIf="user">
-    <p>{{user.id}}</p>
+
+
+  <div class="container">
+    <div fxLayout="row">
+      <mat-card class="main-card">
+        <mat-card-header class="card-head1">
+          <mat-card-title>
+            
+              <h3>{{user.fname}} {{user.lname}} Stats</h3>
+            
+          </mat-card-title>
+          <mat-card-subtitle>
+            <p>Player Summary</p>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <div class="container">
+            <div *ngIf="user" fxLayout="row" fxLayoutAlign=" center" fxLayoutGap="10px">
+              <div fxFlex="35%">
+                Total Submissions:
+              </div>
+              <div fxFlex="10%">
+                {{user.subs.length}}
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div fxLayout="row" fxLayoutAlign=" center" fxLayoutGap="10px">
+              <div fxFlex="35%">
+                Total Taps:
+              </div>
+              <div fxFlex="5%">
+                200
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div fxLayout="row" fxLayoutAlign=" center" fxLayoutGap="10px">
+              <div fxFlex="35%">
+                Favorite Submission:
+              </div>
+              <div fxFlex="5%">
+                {{fav_sub}}
+              </div>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+
+      <div>
+        <ngx-charts-pie-chart *ngIf="chartData" [view]="view" [scheme]="colorScheme" [results]="subsChart" [legend]="showLegend"
+          [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut">
+        </ngx-charts-pie-chart>
+      </div>
+
+    </div> 
+    <!-- End of the Fx Layout Row DIV -->
+
   </div>
-  <!-- <mat-card>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let user of users">
-          <p matLine> {{user.fname}} </p>
-          <p matLine> {{user.lname}} </p>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-  </mat-card> -->
-
+  <!-- End of Container Div -->
 
 </div>
+<!-- End of Matt-App Div -->

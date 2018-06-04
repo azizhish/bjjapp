@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RegUserService } from '../services/reguser.service';
 import { User } from "../shared/user";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ValidateUserTaken } from '../validators/userName';
+import { userNameValidator } from '../validators/userName';
+import { Sub } from '../shared/sub';
 
 @Component({
   selector: 'app-register',
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
     },
     'uname': {
       'required': 'User name is required.',
-      true: 'User name is take'
+      true: 'User name is taken'
     },
     'pass': {
       'required': 'Password is required.',
@@ -54,7 +55,7 @@ export class RegisterComponent implements OnInit {
     this.newUser = this.fb.group({
       fname: ["", Validators.required],
       lname: ["", Validators.required],
-      uname: ["", [Validators.required], ValidateUserTaken.createValidator(this.reguser)],
+      uname: ["", [Validators.required], userNameValidator(this.reguser)],
       pass: ["", Validators.required]
     });
 
@@ -82,15 +83,17 @@ export class RegisterComponent implements OnInit {
   
   
   onSubmit() {
-    this.counter++;
     let obj = this.newUser.value;
     this.usercopy = new User({
       id: this.counter,
       fname: obj.fname,
       lname: obj.lname,
       uname: obj.uname,
-      pass: obj.pass
+      pass: obj.pass,
+      subs: new Array(),
+      taps: new Array()
     });
+    this.counter++;
     this.reguser.registerUser(this.usercopy)
       .subscribe(postit => this.user = postit);
     this.reguser.setCounter(this.counter);

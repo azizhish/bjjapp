@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div *ngIf="user">
+      <h3>User: {{user.fname | uppercase}} {{user.lname | uppercase}} </h3>
+      <form (ngSubmit)="onSubmit()" #subForm="ngForm">
+        <div fxLayout="row" fxLayoutGap="50px">
+          <div>
+            <mat-form-field>
+              <mat-select [(value)]="submission" placeholder="Submission">
+                <mat-option *ngFor="let sub of subs" [value]="sub.value">
+                  {{ sub.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            
+            <mat-slider name="reps" [(ngModel)]="numSubs" thumbLabel min="1" max="5" step="1" value="1"></mat-slider>
+            
+          </div>
+        </div>
+
+
+        <button mat-button type="submit" name="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- End of the FX Flex -->
+  </div>
+
+  <!-- End of the container div -->
+</div>

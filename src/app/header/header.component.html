@@ -1,0 +1,46 @@
+<!-- Toolbar for the header -->
+
+<div>
+  <mat-toolbar color="primary">
+    <span>
+      <mat-icon>mood</mat-icon>
+    </span>
+    <span> </span>
+    <span>Brasilian Jiu Jitsu Tracker</span>
+    <span>
+      <div *ngIf="user">
+      <a mat-menu-item routerLink="/dashboard/{{user.id}}" routerLinkActive="active">
+        <mat-icon class="white-icon">home</mat-icon>
+      </a>
+      </div>
+    </span>
+
+    <button mat-icon-button [mat-menu-trigger-for]="menu">
+      <mat-icon>account_box</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-menu x-position="before" #menu="matMenu" [overlapTrigger]="false">
+    <div *ngIf="user">
+      <a mat-menu-item routerLink="/input/{{user.id}}" routerLinkActive="active">Input</a>
+      <button mat-menu-item>Option 2</button>
+    </div>
+  </mat-menu>
+
+  <span>
+    <div *ngIf="user">
+      <a mat-menu-item routerLink="/graph" routerLinkActive="active">
+        <mat-icon class="white-icon">home</mat-icon>
+      </a>
+    </div>
+  </span>
+
+</div>
+
+
+
+<!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu> -->

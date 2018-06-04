@@ -1,0 +1,15 @@
+
+<h1>My Basic Chart</h1>
+
+<div style="height: 100px">
+  <ngx-charts-bar-vertical [view]="view" [scheme]="colorScheme" [results]="single" [gradient]="gradient" [xAxis]="showXAxis"
+    [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel" (select)="onSelect($event)">
+  </ngx-charts-bar-vertical>
+</div>
+
+<div>
+<ngx-charts-pie-chart *ngIf="chartData" [view]="view" [scheme]="colorScheme" [results]="countryData" [legend]="showLegend"
+  [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" (select)="onSelect($event)">
+</ngx-charts-pie-chart>
+</div>
