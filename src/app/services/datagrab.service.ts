@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Restangular } from 'ngx-restangular/dist/esm/src/ngx-restangular';
 import { User } from "../shared/user";
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Sub } from "../shared/sub";
 
 @Injectable()

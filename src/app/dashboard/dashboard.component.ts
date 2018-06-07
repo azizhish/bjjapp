@@ -3,11 +3,11 @@ import { User } from "../shared/user";
 import { Sub } from "../shared/sub";
 import { ActivatedRoute, ParamMap, Params } from "@angular/router";
 import { RegUserService } from "../services/reguser.service";
-import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/switchMap';
+
 import { DatagrabService } from '../services/datagrab.service';
 import { NgxChartsModule } from "@swimlane/ngx-charts";
-
+import { Observable, interval, pipe } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',

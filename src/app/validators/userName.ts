@@ -1,8 +1,8 @@
 import { FormControl } from '@angular/forms';
 import { RegUserService } from '../services/reguser.service';
 import { AsyncValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
-import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/map';
+import { Observable } from "rxjs";
+
 
 export function userNameValidator(regup: RegUserService): AsyncValidatorFn {
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
