@@ -4,6 +4,7 @@ import { User } from "../shared/user";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { userNameValidator } from '../validators/userName';
 import { Sub } from '../shared/sub';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -43,7 +44,8 @@ export class RegisterComponent implements OnInit {
   };
 
   constructor(private reguser: RegUserService,
-    private fb:FormBuilder) {
+    private fb: FormBuilder,
+    private router: Router) {
     this.reguser.getCounterStatus().subscribe(count => this.counter = count.id);
     this.createForm();
   }
@@ -83,6 +85,7 @@ export class RegisterComponent implements OnInit {
   
   
   onSubmit() {
+    console.log("I am here"); // problem is that that this code is never being called
     let obj = this.newUser.value;
     this.usercopy = new User({
       id: this.counter,
@@ -97,6 +100,7 @@ export class RegisterComponent implements OnInit {
     this.reguser.registerUser(this.usercopy)
       .subscribe(postit => this.user = postit);
     this.reguser.setCounter(this.counter);
+    this.router.navigate(['/login']);
    }
 
 }
